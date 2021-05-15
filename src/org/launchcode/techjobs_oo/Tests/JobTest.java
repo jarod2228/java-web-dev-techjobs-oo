@@ -28,21 +28,44 @@ public class JobTest {
 
     @Test
     public void testJobConstructorSetsAllFields() {
-        assertTrue(filledOutJob.getName() == "Product tester");
+        assertTrue(filledOutJob.getName().equals("Product tester"));
         assertTrue(filledOutJob.getName() instanceof String);
-        assertTrue(filledOutJob.getEmployer().getValue() == "ACME");
+        assertTrue(filledOutJob.getEmployer().getValue().equals("ACME"));
         assertTrue(filledOutJob.getEmployer() instanceof Employer);
-        assertTrue(filledOutJob.getLocation().getValue() == "Desert");
+        assertTrue(filledOutJob.getLocation().getValue().equals("Desert"));
         assertTrue(filledOutJob.getLocation() instanceof Location);
-        assertTrue(filledOutJob.getPositionType().getValue() == "Quality control");
+        assertTrue(filledOutJob.getPositionType().getValue().equals("Quality control"));
         assertTrue(filledOutJob.getPositionType() instanceof  PositionType);
-        assertTrue(filledOutJob.getCoreCompetency().getValue() == "Persistence");
+        assertTrue(filledOutJob.getCoreCompetency().getValue().equals("Persistence"));
         assertTrue(filledOutJob.getCoreCompetency() instanceof CoreCompetency);
     }
 
     @Test
     public void testJobsForEquality() {
         assertFalse(filledOutJob.equals(cloneFilledOutJob));
+    }
+
+    @Test
+    public void testToStringIdField() {
+        int substringEndingIndexPlusOne = filledOutJob.toString().indexOf('\\');
+        String substring = filledOutJob.toString().substring(substringEndingIndexPlusOne -5, - 1);
+        assertTrue(filledOutJob.toString().substring(0, 8).equals("ID: _____"));
+        assertTrue(substring.equals("_____"));
+
+
+        /*str.substring for the first 5 characters which should return _____ and the last
+        5 characters should also be _____ but how to make that work? It won't just return
+        one line for the Id field, it will return the entire object in string form.
+
+        This toString should return the object in its entirety in string form separating
+        each field's data with a newline command at the end of the string. Since I know this,
+        maybe I should find the indexOf the first occurrence of a newline command, then use
+        that to know the index of the second substring which would be the last _____
+
+        NOW you need to make the toString method that passes this test...
+
+        WAIT! THEY PROBABLY MEAN THE _____ JUST AS AN EMPTY SPACE....*/
+
     }
 
 }
