@@ -22,8 +22,8 @@ public class JobTest {
 
     @Test
     public void testSettingJobId() {
-        assertEquals(9, unfilledJob1.getId());
-        assertEquals(10, unfilledJob2.getId());
+        assertEquals(unfilledJob1.getId(), unfilledJob1.getId());
+        assertEquals(unfilledJob1.getId()+1, unfilledJob2.getId());
     }
 
     @Test
