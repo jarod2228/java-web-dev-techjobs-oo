@@ -15,8 +15,8 @@ public class JobTest {
     Job cloneFilledOutJob;
     @Before
     public void createTwoJobs() {
-        unfilledJob1 = new Job();
-        unfilledJob2 = new Job();
+        unfilledJob1 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        unfilledJob2 = new Job("Some Kinda Name", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
         filledOutJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         cloneFilledOutJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     }
@@ -64,7 +64,13 @@ public class JobTest {
 
     @Test
     public void testEmptyFieldsShowUpAsDataNotAvailable() {
+        //The id will never be empty, so no need to put that?
         assertTrue(unfilledJob1.toString().contains("Name: Data not available"));
+        assertTrue(unfilledJob1.toString().contains("Employer: Data not available"));
+        assertTrue(unfilledJob1.toString().contains("Location: Data not available"));
+        assertTrue(unfilledJob1.toString().contains("Position Type: Data not available"));
+        assertTrue(unfilledJob1.toString().contains("Core Competency: Data not available"));
+
     }
 
 }

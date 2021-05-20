@@ -37,13 +37,13 @@ public class Job {
     //  match.
 
 
-@Override
-public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Job job = (Job) o;
-    return id == job.id;
-}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
 
     @Override
     public int hashCode() {
@@ -52,34 +52,49 @@ public boolean equals(Object o) {
 
     @Override
     public String toString() {
-        return "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: "
-                + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+
+            return "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: "
+                    + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
 
     public int getId() {
         return id;
     }
 
     public String getName() {
-        return name;
+        if (this.name.equals("")) {
+            this.setName("Data not available");
+        }
+            return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+
     public Employer getEmployer() {
+        if (employer.getValue().equals("")) {
+            employer.setValue("Data not available");
+        }
         return employer;
     }
+
+    //            Watch polymorphism video to see if you can use an interface and have these classes implement that so as to make things more widely accessible, not mattering if something is an
+//            Employer this or a Location that?
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
     public Location getLocation() {
+        if (location.getValue().equals("")) {
+            location.setValue("Data not available");
+        }
         return location;
     }
 
@@ -88,6 +103,9 @@ public boolean equals(Object o) {
     }
 
     public PositionType getPositionType() {
+        if (positionType.getValue().equals("")) {
+            positionType.setValue("Data not available");
+        }
         return positionType;
     }
 
@@ -96,6 +114,9 @@ public boolean equals(Object o) {
     }
 
     public CoreCompetency getCoreCompetency() {
+        if (coreCompetency.getValue().equals("")) {
+            coreCompetency.setValue("Data not available");
+        }
         return coreCompetency;
     }
 
