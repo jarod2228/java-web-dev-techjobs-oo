@@ -28,16 +28,16 @@ public class JobTest {
     }
 
     @Test
-    public void testJobConstructorSetsAllFields() {
+    public void testJobConstructorSetsAllFields() {;
         assertTrue(filledOutJob.getName().equals("Product tester"));
         assertTrue(filledOutJob.getName() instanceof String);
-        assertTrue(filledOutJob.getEmployer().getValue().equals("ACME"));
+        assertTrue(filledOutJob.getEmployer().getValue());
         assertTrue(filledOutJob.getEmployer() instanceof Employer);
-        assertTrue(filledOutJob.getLocation().getValue().equals("Desert"));
+        assertTrue(filledOutJob.getLocation().equals("Desert"));
         assertTrue(filledOutJob.getLocation() instanceof Location);
-        assertTrue(filledOutJob.getPositionType().getValue().equals("Quality control"));
+        assertTrue(filledOutJob.getPositionType().equals("Quality control"));
         assertTrue(filledOutJob.getPositionType() instanceof  PositionType);
-        assertTrue(filledOutJob.getCoreCompetency().getValue().equals("Persistence"));
+        assertTrue(filledOutJob.getCoreCompetency().equals("Persistence"));
         assertTrue(filledOutJob.getCoreCompetency() instanceof CoreCompetency);
     }
 

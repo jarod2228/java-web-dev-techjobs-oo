@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import static java.util.Objects.isNull;
@@ -36,7 +38,6 @@ public class Job {
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,23 +53,72 @@ public class Job {
 
     @Override
     public String toString() {
-
-            return "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: "
-                    + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+        String output = "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation()
+                + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency();
+        return output;
     }
+//
+//        String nameText = this.getName();
+//        String employerText = this.getEmployer().getValue();
+//        String locationText = this.getLocation().getValue();
+//        String positionText = this.getPositionType().getValue();
+//        String coreCompetencyText = this.getCoreCompetency().getValue();
+//        String oops = "OOPS! This job does not seem to exist.";
+//
+//        boolean name = true;
+//        boolean employer = true;
+//        boolean location = true;
+//        boolean position = true;
+//        boolean coreCompetency = true;
+//
+//        if (nameText.equals("")) {
+//            nameText = "Data not available";
+//            name = false;
+//        }
+//        if (employerText.equals("")) {
+//            employerText = "Data not available";
+//            employer = false;
+//        }
+//        if (locationText.equals("")) {
+//            locationText = "Data not available";
+//            location = false;
+//        }
+//        if (positionText.equals("")) {
+//            positionText = "Data not available";
+//            position = false;
+//        }
+//        if (coreCompetencyText.equals("")) {
+//            coreCompetencyText = "Data not available";
+//            coreCompetency = false;
+//        }
+//        if (!(name && employer && location && position && coreCompetency)) {
+//            return oops;
+//        } else {
+//            String output = String.format("%nID: %d %nName: %s %nEmployer: %s %nLocation: %s %nPosition: %s %nCore Competency: %s %n"
+//                    , nameText, employerText, locationText, positionText, coreCompetencyText);
+//            return output;
+//        }
+//    }
+
+    // below is the original toString
+
+        // below is to determine whether all values aside from id contain empty strings, but if id is not null.
+//        if ((!isNull(this.getId())) && !this.getName().equals("") && !this.getEmployer().getValue().equals("") && !this.getLocation().getValue().equals("") && !this.getPositionType().getValue().equals("")
+//         && !this.getCoreCompetency().getValue().equals("")) {
+//        }
+//            //maybe find a way to use String.format for the output as per Brian
+//            String output = "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: "
+//                    + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+//            return output;
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
-
 
     public int getId() {
         return id;
     }
 
     public String getName() {
-        if (this.name.equals("")) {
-            this.setName("Data not available");
-        }
             return name;
     }
 
@@ -76,25 +126,15 @@ public class Job {
         this.name = name;
     }
 
-
     public Employer getEmployer() {
-        if (employer.getValue().equals("")) {
-            employer.setValue("Data not available");
-        }
         return employer;
     }
-
-    //            Watch polymorphism video to see if you can use an interface and have these classes implement that so as to make things more widely accessible, not mattering if something is an
-//            Employer this or a Location that?
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
     public Location getLocation() {
-        if (location.getValue().equals("")) {
-            location.setValue("Data not available");
-        }
         return location;
     }
 
@@ -103,9 +143,6 @@ public class Job {
     }
 
     public PositionType getPositionType() {
-        if (positionType.getValue().equals("")) {
-            positionType.setValue("Data not available");
-        }
         return positionType;
     }
 
@@ -114,9 +151,6 @@ public class Job {
     }
 
     public CoreCompetency getCoreCompetency() {
-        if (coreCompetency.getValue().equals("")) {
-            coreCompetency.setValue("Data not available");
-        }
         return coreCompetency;
     }
 
