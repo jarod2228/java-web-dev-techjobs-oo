@@ -31,13 +31,13 @@ public class JobTest {
     public void testJobConstructorSetsAllFields() {;
         assertTrue(filledOutJob.getName().equals("Product tester"));
         assertTrue(filledOutJob.getName() instanceof String);
-        assertTrue(filledOutJob.getEmployer().getValue());
+        assertTrue(filledOutJob.getEmployer().getValue().equals("ACME"));
         assertTrue(filledOutJob.getEmployer() instanceof Employer);
-        assertTrue(filledOutJob.getLocation().equals("Desert"));
+        assertTrue(filledOutJob.getLocation().getValue().equals("Desert"));
         assertTrue(filledOutJob.getLocation() instanceof Location);
-        assertTrue(filledOutJob.getPositionType().equals("Quality control"));
+        assertTrue(filledOutJob.getPositionType().getValue().equals("Quality control"));
         assertTrue(filledOutJob.getPositionType() instanceof  PositionType);
-        assertTrue(filledOutJob.getCoreCompetency().equals("Persistence"));
+        assertTrue(filledOutJob.getCoreCompetency().getValue().equals("Persistence"));
         assertTrue(filledOutJob.getCoreCompetency() instanceof CoreCompetency);
     }
 
@@ -53,7 +53,7 @@ public class JobTest {
     }
     @Test
     public void testStringHasLabelsBeforeDataAndNewlines() {
-        assertTrue(filledOutJob.toString().contains("\nID: "));
+        assertTrue(filledOutJob.toString().contains("\nID: "+filledOutJob.getId()));
         assertTrue(filledOutJob.toString().contains("\nName: Product tester"));
         assertTrue(filledOutJob.toString().contains("\nEmployer: ACME"));
         assertTrue(filledOutJob.toString().contains("\nLocation: Desert"));
@@ -65,12 +65,16 @@ public class JobTest {
     @Test
     public void testEmptyFieldsShowUpAsDataNotAvailable() {
         //The id will never be empty, so no need to put that?
-        assertTrue(unfilledJob1.toString().contains("Name: Data not available"));
-        assertTrue(unfilledJob1.toString().contains("Employer: Data not available"));
-        assertTrue(unfilledJob1.toString().contains("Location: Data not available"));
-        assertTrue(unfilledJob1.toString().contains("Position Type: Data not available"));
-        assertTrue(unfilledJob1.toString().contains("Core Competency: Data not available"));
+        assertTrue(unfilledJob2.toString().contains("Name: Some Kinda Name"));
+        assertTrue(unfilledJob2.toString().contains("Employer: Data not available"));
+        assertTrue(unfilledJob2.toString().contains("Location: Data not available"));
+        assertTrue(unfilledJob2.toString().contains("Position Type: Data not available"));
+        assertTrue(unfilledJob2.toString().contains("Core Competency: Data not available"));
 
+    }
+    @Test
+    public void testingTheOops() {
+        assertEquals("OOPS! This job does not seem to exist.", unfilledJob1.toString());
     }
 
 }

@@ -53,52 +53,53 @@ public class Job {
 
     @Override
     public String toString() {
-        String output = "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation()
-                + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency();
-        return output;
-    }
-//
-//        String nameText = this.getName();
-//        String employerText = this.getEmployer().getValue();
-//        String locationText = this.getLocation().getValue();
-//        String positionText = this.getPositionType().getValue();
-//        String coreCompetencyText = this.getCoreCompetency().getValue();
-//        String oops = "OOPS! This job does not seem to exist.";
-//
-//        boolean name = true;
-//        boolean employer = true;
-//        boolean location = true;
-//        boolean position = true;
-//        boolean coreCompetency = true;
-//
-//        if (nameText.equals("")) {
-//            nameText = "Data not available";
-//            name = false;
-//        }
-//        if (employerText.equals("")) {
-//            employerText = "Data not available";
-//            employer = false;
-//        }
-//        if (locationText.equals("")) {
-//            locationText = "Data not available";
-//            location = false;
-//        }
-//        if (positionText.equals("")) {
-//            positionText = "Data not available";
-//            position = false;
-//        }
-//        if (coreCompetencyText.equals("")) {
-//            coreCompetencyText = "Data not available";
-//            coreCompetency = false;
-//        }
-//        if (!(name && employer && location && position && coreCompetency)) {
-//            return oops;
-//        } else {
-//            String output = String.format("%nID: %d %nName: %s %nEmployer: %s %nLocation: %s %nPosition: %s %nCore Competency: %s %n"
-//                    , nameText, employerText, locationText, positionText, coreCompetencyText);
-//            return output;
-//        }
+//        String output = "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation()
+//                + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+//        return output;
 //    }
+//
+        int numberId = this.getId();
+        String nameText = this.getName();
+        String employerText = this.getEmployer().getValue();
+        String locationText = this.getLocation().getValue();
+        String positionText = this.getPositionType().getValue();
+        String coreCompetencyText = this.getCoreCompetency().getValue();
+        String oops = "OOPS! This job does not seem to exist.";
+
+        boolean name = true;
+        boolean employer = true;
+        boolean location = true;
+        boolean position = true;
+        boolean coreCompetency = true;
+
+        if (nameText.equals("")) {
+            nameText = "Data not available";
+            name = false;
+        }
+        if (employerText.equals("")) {
+            employerText = "Data not available";
+            employer = false;
+        }
+        if (locationText.equals("")) {
+            locationText = "Data not available";
+            location = false;
+        }
+        if (positionText.equals("")) {
+            positionText = "Data not available";
+            position = false;
+        }
+        if (coreCompetencyText.equals("")) {
+            coreCompetencyText = "Data not available";
+            coreCompetency = false;
+        }
+        if (!name && !employer && !location && !position && !coreCompetency) {
+            return oops;
+        } else {
+            String output = String.format("%nID: %d %nName: %s %nEmployer: %s %nLocation: %s %nPosition Type: %s %nCore Competency: %s %n",
+                    numberId , nameText, employerText, locationText, positionText, coreCompetencyText);
+            return output;
+        }
+    }
 
     // below is the original toString
 

@@ -9,12 +9,12 @@ public class Employer extends JobField {
 //    private String value;
 //
 //
-//    public Employer(String value) {
-//        super(value);
-//    }
-    public Employer() {
-        super();
+    public Employer(String value) {
+        super(value);
     }
+//    public Employer() {
+//        super();
+//    }
 }
 //    public Employer() {
 //        id = nextId;
