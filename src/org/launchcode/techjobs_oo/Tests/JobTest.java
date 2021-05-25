@@ -76,5 +76,4 @@ public class JobTest {
     public void testingTheOops() {
         assertEquals("OOPS! This job does not seem to exist.", unfilledJob1.toString());
     }
-
 }

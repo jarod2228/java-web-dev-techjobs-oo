@@ -1,10 +1,6 @@
 package org.launchcode.techjobs_oo;
 
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.Objects;
-
-import static java.util.Objects.isNull;
 
 public class Job {
 
@@ -36,7 +32,6 @@ public class Job {
     }
 
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
 
     @Override
     public boolean equals(Object o) {
@@ -53,11 +48,6 @@ public class Job {
 
     @Override
     public String toString() {
-//        String output = "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation()
-//                + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
-//        return output;
-//    }
-//
         int numberId = this.getId();
         String nameText = this.getName();
         String employerText = this.getEmployer().getValue();
@@ -100,18 +90,6 @@ public class Job {
             return output;
         }
     }
-
-    // below is the original toString
-
-        // below is to determine whether all values aside from id contain empty strings, but if id is not null.
-//        if ((!isNull(this.getId())) && !this.getName().equals("") && !this.getEmployer().getValue().equals("") && !this.getLocation().getValue().equals("") && !this.getPositionType().getValue().equals("")
-//         && !this.getCoreCompetency().getValue().equals("")) {
-//        }
-//            //maybe find a way to use String.format for the output as per Brian
-//            String output = "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: "
-//                    + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
-//            return output;
-
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 

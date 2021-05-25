@@ -3,16 +3,6 @@ package org.launchcode.techjobs_oo;
 import java.util.ArrayList;
 
 public class Main {
-//    public static void main(String[] args) {
-//        Job unfilledJob1 = new Job();
-//        Job unfilledJob2 = new Job();
-//        Job unfilledJob3 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-//        Job filledOutJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-//        Job cloneFilledOutJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-//
-//        System.out.println(filledOutJob);
-//    }
-
 
     public static void main(String[] args) {
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
@@ -28,5 +18,4 @@ public class Main {
             System.out.println(job);
         }
     }
-
 }
